@@ -6,13 +6,21 @@ import { ServerComponent } from "./server/server.component";
 import { ServersComponent } from './servers/servers.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import {FormsModule} from "@angular/forms";
+import {
+  AfterText,
+  AsyncPromisePipeComponent,
+  ExponentialStrengthPipe
+} from './async-promise-pipe/async-promise-pipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServerComponent,
     ServersComponent,
-    CarouselComponent
+    CarouselComponent,
+    AsyncPromisePipeComponent,
+    AfterText,
+    ExponentialStrengthPipe
   ],
   imports: [
     BrowserModule,

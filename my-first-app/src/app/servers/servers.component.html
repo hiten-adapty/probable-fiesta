@@ -6,14 +6,15 @@
 <!--Two-way binding-->
 <label>Server Name Two-way Binding</label>
 <input type="text" class="form-control" [(ngModel)]="serverName">
-<p>Server Name : {{serverName}}</p>
+<p>Server Name : {{ serverName }}</p>
 
 <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add new Server</button>
 <!--<p [innerText]="serverCreationStatus"></p>-->
 <p *ngIf="serverCreated">{{ serverCreationStatus }}</p>
 
 <!--[(ngModel)] is used for DataBinding-->
-<input type="text" class="form-control" [(ngModel)]="userName">
+<!-- <input type="text" class="form-control" [(ngModel)]="userName"> -->
+<input type="text" class="form-control" (input)="onUpdateUsername($event)">
 <p>Types Username: {{userName}}</p>
 <button class="btn btn-dark" [disabled]="userName === ''" (click)="userName = ''">Reset User</button>
 <br>
@@ -21,8 +22,8 @@
 <button class="btn btn-dark" (click)="onToggleDisplay()">Display Details</button>
 <p *ngIf="showSecret">This toggle button text.</p>
 <div *ngFor="let logItem of log; let i = index"
-     [ngStyle]="{backgroundColor: i >= 5 ? 'blue': 'transparent'}"
+     [ngStyle]="{'background-color': i >= 5 ? 'blue': 'transparent'}"
      [ngClass]="{'white-text': i >= 5}"
->{{ logItem }}</div>
+>{{ logItem | date }}</div>
 
 <!--<server-data *ngFor="let server of servers"></server-data>-->
