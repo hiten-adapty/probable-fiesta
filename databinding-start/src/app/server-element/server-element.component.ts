@@ -25,9 +25,11 @@ export class ServerElementComponent implements OnChanges, OnInit, DoCheck, After
 
   @ViewChild('heading', {static: true}) header: ElementRef;
 
+  // @ViewChild('contentParagraph', {static: true}) paragraph: ElementRef;
+
   @ContentChild('contentParagraph', {static: true}) paragraph: ElementRef;
   constructor() {
-    // console.log('Constructor called!');
+    console.log('Constructor called!');
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -35,9 +37,9 @@ export class ServerElementComponent implements OnChanges, OnInit, DoCheck, After
   }
 
   ngOnInit() {
-    console.log('ngOnInit Called');
-    console.log('Text Content of header : ' + this.header.nativeElement.value);
-    console.log('Text Content of paragraph: ' + this.paragraph.nativeElement.textContent);
+    console.log('ngOnInit Called\n'+'Text Content of header : '
+      + this.header.nativeElement.textContent
+    + '\nText Content of paragraph: ' + this.paragraph.nativeElement.textContent);
   }
 
   ngDoCheck() {
@@ -45,21 +47,20 @@ export class ServerElementComponent implements OnChanges, OnInit, DoCheck, After
   }
 
   ngAfterContentInit() {
-    console.log('ngAfterContentInit Called');
-    console.log('Text Content of paragraph: ' + this.paragraph.nativeElement.textContent);
+    console.log('ngAfterContentInit Called\n' + 'Text Content of paragraph: ' + this.paragraph.nativeElement.textContent
+    + '\nText Content of header : ' + this.header.nativeElement.textContent);
   }
 
   ngAfterContentChecked() {
     console.log('ngAfterContentChecked Called');
   }
 
-  ngAfterViewChecked(): void {
-    console.log('ngAfterViewChecked Called');
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit Called\n' + 'Text Content of header : ' + this.header.nativeElement.textContent);
   }
 
-  ngAfterViewInit(): void {
-    console.log('ngAfterViewInit Called');
-    console.log('Text Content of header : ' + this.header.nativeElement.textContent);
+  ngAfterViewChecked(): void {
+    console.log('ngAfterViewChecked Called');
   }
 
   ngOnDestroy(): void {

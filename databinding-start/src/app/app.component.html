@@ -16,6 +16,8 @@
           <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
         </p>
       </app-server-element>
+      <p #sampleText>Random Text</p>
+      <button class="btn btn-secondary" (click)="changeText()">Click Me</button>
     </div>
   </div>
 </div>
