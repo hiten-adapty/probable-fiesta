@@ -12,6 +12,7 @@ import { ShowAllContactsComponent } from './dashboard/show-all-contacts/show-all
 import { SearchContactsComponent } from './dashboard/search-contacts/search-contacts.component';
 import { SettingsComponent } from './dashboard/settings/settings.component';
 import { HeaderComponent } from './header/header.component';
+import { UserService } from './services/user.services';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
